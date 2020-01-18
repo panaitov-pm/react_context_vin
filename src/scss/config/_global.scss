@@ -1,1 +1,10 @@
 $color-grey: #ccc;
+$color-light: #fff;
+$color-danger: red;
+
+
+.screen-reader-text {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+}
