@@ -1,10 +1,8 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-
-import Home from './Pages/Home';
-import VariableList from './Pages/VariableList';
-import Variable from './Pages/Variable';
-import Page404 from './Pages/Page404';
+import Page404 from './Page/Page404';
+import PageNavigation from './Section/PageNavigation';
+import PageRoutes, { IPageRoute } from '../System/Routes';
 
 /**
  * @interface Props
@@ -16,10 +14,18 @@ interface Props {
 const App: React.FC<Props> = ({}): any => {
     return (
         <div className="container">
+            <PageNavigation />
             <Switch>
-                <Route exact path="/" component={Home} />
-                <Route exact path="/variables" component={VariableList} />
-                <Route path="/variables/:variableId" component={Variable} />
+                {
+                    PageRoutes.map((route: IPageRoute, index: number) => (
+                        <Route
+                            key={index}
+                            exact={route.exact}
+                            path={route.path}
+                            render={props => <route.component {...props} />}
+                        />
+                    ))
+                }
                 <Route component={Page404} />
             </Switch>
         </div>
