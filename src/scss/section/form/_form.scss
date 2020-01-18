@@ -1,18 +1,68 @@
-.form-wrap {
-
-    @include tablet {
-        flex-grow: 1;
-        padding-right: 7.5px;
-    }
-}
-
 .search-form {
     $searchButtonWidth: 75px;
 
     max-width: 544px;
-    margin: 0 auto 15px;
-    overflow: hidden;
-    position: relative;
+    margin: 0 auto 30px;
+
+    &__field {
+        overflow: hidden;
+        position: relative;
+
+        &-wrap {
+            position: relative;
+
+        &.has-error {
+
+            .search-form {
+
+                &__field-help {
+                    opacity: 1;
+                    z-index: 3;
+                }
+
+                &__input {
+                    border: 1px solid $color-danger;
+
+                    & ~ .search-form__button {
+                        border: 1px solid $color-danger;
+                    }
+                }
+            }
+        }
+        }
+
+        &-help {
+            opacity: 0;
+            transition: .3s ease;
+            transition-property: color;
+            background-color: $color-danger;
+            padding: 3px 5px;
+            border-radius: 4px;
+            position: absolute;
+            cursor: default;
+            color: $color-light;
+            z-index: 1;
+            top: 95%;
+            margin: 0 5px;
+            font-size: .75rem;
+            line-height: .875rem;
+            box-shadow: 0 5px 25px rgba(50,50,93,.2);
+
+            &:before {
+                position: absolute;
+                top: -4px;
+                left: 15px;
+                width: 8px;
+                height: 8px;
+                content: "";
+                transform: rotate(45deg);
+                border-radius: 4px 0 0 0;
+                background-color: $color-danger;
+                z-index: -1;
+                box-shadow: -3px -3px 5px rgba(50,50,93,.04);
+            }
+        }
+    }
 
     &__input {
         margin: 0;
@@ -31,14 +81,6 @@
 
         &:not(:placeholder-shown) ~ .search-form__button {
             transform: translateX(calc(-1 * #{$searchButtonWidth}));
-        }
-
-        &.has-error {
-            border: 1px solid $color-danger;
-
-            & ~ .search-form__button {
-                border: 1px solid $color-danger;
-            }
         }
     }
 
