@@ -10,7 +10,7 @@ interface Props {
 
 }
 
-const PageNavigation: React.FC<Props> = ({}): any => {
+const PageNavigation: React.FC<Props> = (): any => {
     return (
         <nav className="navbar container">
             <ul className="navbar-list">
