@@ -1,0 +1,44 @@
+.decode-list {
+    max-width: 900px;
+    margin: 0 auto 15px;
+
+    &__item {
+
+        &:not(:last-child) {
+            border-bottom: 1px solid #ddd;
+        }
+
+        &:first-child {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 600;
+        }
+
+        span {
+            padding: 8px 10px;
+
+            &:not(:first-child) {
+                width: 40%;
+                flex-grow: 1;
+            }
+
+            &:first-child {
+                width: 20px;
+            }
+        }
+    }
+
+    &__link {
+        text-decoration: none;
+        color: #ddd;
+        display: flex;
+        justify-content: space-between;
+        transition: 0.3s ease;
+        transition-property: color, background-color;
+
+        &:hover {
+            color: #666699;
+            background-color: #ddd;
+        }
+    }
+}
