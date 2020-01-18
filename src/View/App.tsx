@@ -13,22 +13,26 @@ interface Props {
 
 const App: React.FC<Props> = ({}): any => {
     return (
-        <div className="container">
-            <PageNavigation />
-            <Switch>
-                {
-                    PageRoutes.map((route: IPageRoute, index: number) => (
-                        <Route
-                            key={index}
-                            exact={route.exact}
-                            path={route.path}
-                            render={props => <route.component {...props} />}
-                        />
-                    ))
-                }
-                <Route component={Page404} />
-            </Switch>
-        </div>
+        <>
+            <header className="header">
+                <PageNavigation />
+            </header>
+            <div className="container">
+                <Switch>
+                    {
+                        PageRoutes.map((route: IPageRoute, index: number) => (
+                            <Route
+                                key={index}
+                                exact={route.exact}
+                                path={route.path}
+                                render={props => <route.component {...props} />}
+                            />
+                        ))
+                    }
+                    <Route component={Page404} />
+                </Switch>
+            </div>
+        </>
     );
 };
 

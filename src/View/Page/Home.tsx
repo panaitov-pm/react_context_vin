@@ -9,9 +9,14 @@ interface Props {
 
 const Home: React.FC<Props> = ({  }): any => {
     return (
-        <>
-<h1>Home</h1>
-        </>
+            <main className="main">
+                <aside className="sidebar">
+sidebar
+                </aside>
+<section className="form-wrap">
+form
+</section>
+            </main>
     );
 };
 

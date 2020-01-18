@@ -1,6 +1,12 @@
+@import "src/scss/config/global";
 @import "src/scss/default";
+@import "src/scss/config/config";
 @import "src/scss/home/home";
 
 // Sections
+@import "src/scss/section/header/header";
 @import "src/scss/section/navbar/navbar";
+@import "src/scss/section/main/main";
+@import "src/scss/section/sidebar/sidebar";
+@import "src/scss/section/form/form";
 

@@ -12,7 +12,7 @@ interface Props {
 
 const PageNavigation: React.FC<Props> = ({}): any => {
     return (
-        <nav className="navbar">
+        <nav className="navbar container">
             <ul className="navbar-list">
                 {
                     getNavRoutes(PageRoutes, ['home', 'variableList']).map((route: IPageRoute, index: number) => (

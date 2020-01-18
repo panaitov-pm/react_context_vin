@@ -1,0 +1,15 @@
+.sidebar {
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid $color-grey;
+
+    @include tablet {
+        flex-shrink: 0;
+        padding-bottom: 0;
+        margin-bottom: 0;
+        padding-left: 7.5px;
+        order: 2;
+        border-left: 1px solid $color-grey;
+        border-bottom:  none;
+    }
+}

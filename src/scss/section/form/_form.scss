@@ -1,0 +1,7 @@
+.form-wrap {
+
+    @include tablet {
+        flex-grow: 1;
+        padding-right: 7.5px;
+    }
+}
