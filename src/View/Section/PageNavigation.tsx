@@ -15,7 +15,7 @@ const PageNavigation: React.FC<Props> = (): any => {
         <nav className="navbar container">
             <ul className="navbar-list">
                 {
-                    getNavRoutes(PageRoutes, ['home', 'variableList']).map((route: IPageRoute, index: number) => (
+                    getNavRoutes(PageRoutes, ['home', 'variables']).map((route: IPageRoute, index: number) => (
                         <li
                             key={index}
                             className="navbar-list__item"
