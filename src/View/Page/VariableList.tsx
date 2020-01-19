@@ -7,7 +7,7 @@ interface Props {
 
 }
 
-const VariableList: React.FC<Props> = ({  }): any => {
+const VariableList: React.FC<Props> = () => {
     return (
         <>
 <h1>VariableList</h1>

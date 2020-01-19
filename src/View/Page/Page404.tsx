@@ -7,7 +7,7 @@ interface Props {
 
 }
 
-const Page404: React.FC<Props> = ({}): any => {
+const Page404: React.FC<Props> = () => {
     return (
         <>
             <h1>Page not found</h1>
