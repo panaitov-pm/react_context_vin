@@ -25,14 +25,9 @@ const DecodeVINList: React.FC<Props> = withVIN(({ isLoadingDecodeVIN, decodeVIN 
             {
                 decodeVIN.Results.map((result: IDecodeVINResult, index: number) => (
                     <li key={result.VariableId} className="decode-list__item">
-                        <a
-                            className="decode-list__link"
-                            href="/"
-                        >
                             <span>{index + 1}</span>
                             <span>{result.Variable}</span>
                             <span>{result.Value}</span>
-                        </a>
                     </li>
                 ))
             }

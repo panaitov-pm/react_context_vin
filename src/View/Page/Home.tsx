@@ -15,13 +15,15 @@ interface Props {
 const Home: React.FC<Props> = withVIN(({ setDecodeVIN, addSearchedVIN, searchVIN, setSearchVIN, searchedVINList }) => {
 
     // Query VIN search
-    const { queryDecodeVIN, loading, decodeVIN } = useQueryDecodeVIN(searchVIN);
-    const searchCriteria = decodeVIN.SearchCriteria;
+    const { response, queryDecodeVIN, loading, decodeVIN } = useQueryDecodeVIN(searchVIN);
+    const searchCriteria = response?.data?.SearchCriteria;
 
     // Set decodeVIN, clear input value
     useEffect(() => {
-        setDecodeVIN(decodeVIN);
         setSearchVIN('');
+
+        searchCriteria && setDecodeVIN(decodeVIN);
+
     }, [searchCriteria]);
 
     // Set searched VIN

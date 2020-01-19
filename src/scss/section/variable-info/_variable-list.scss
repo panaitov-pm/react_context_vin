@@ -30,6 +30,27 @@
 
     &__desc {
         width: 65%;
+
+        p {
+            line-height: 1.3;
+
+            &:not(:last-child) {
+                margin-bottom: 10px;
+            }
+
+            br {
+                display: none;
+            }
+        }
+
+        ul {
+            list-style-type: disc;
+            list-style-position: inside;
+
+            li {
+                line-height: 1.3;
+            }
+        }
     }
 
     &__link {

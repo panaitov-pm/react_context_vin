@@ -3,14 +3,14 @@
     margin: 0 auto 15px;
 
     &__item {
+        display: flex;
+        justify-content: space-between;
 
         &:not(:last-child) {
             border-bottom: 1px solid #ddd;
         }
 
         &:first-child {
-            display: flex;
-            justify-content: space-between;
             font-weight: 600;
         }
 
@@ -25,20 +25,6 @@
             &:first-child {
                 width: 20px;
             }
-        }
-    }
-
-    &__link {
-        text-decoration: none;
-        display: flex;
-        color: $color-black;
-        justify-content: space-between;
-        transition: 0.3s ease;
-        transition-property: color, background-color;
-
-        &:hover {
-            color: $color-light;
-            background-color: #669;
         }
     }
 }
