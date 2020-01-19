@@ -1,6 +1,7 @@
 import React, { Reducer, useContext, useReducer } from 'react';
 import VINContext, { VINContextProps } from './VINContext';
 import IDecodeVIN from '../../Types/VIN/DecodeVIN';
+import IVehicleVariableList from '../../Types/VIN/VehicleVariableList';
 
 /**
  * @interface Props
@@ -12,6 +13,7 @@ interface Props {
 export enum VINActions {
     SET_SEARCH_VIN = 'SET_SEARCH_VIN',
     SET_DECODE_VIN = 'SET_DECODE_VIN',
+    SET__VEHICLE_VARIABLE_LIST = 'SET__VEHICLE_VARIABLE_LIST',
     ADD_SEARCHED_VIN = 'ADD_SEARCHED_VIN',
 }
 
@@ -21,6 +23,7 @@ export enum VINActions {
 interface Action {
     type: string;
     decodeVIN?: IDecodeVIN;
+    vehicleVariableList?: IVehicleVariableList;
     searchedVIN?: string;
     searchVIN?: string;
 }
@@ -37,7 +40,15 @@ const reducer: Reducer<VINContextProps, Action> = (prevState, action): VINContex
                 ...prevState,
                 decodeVIN: {
                     ...prevState.decodeVIN,
-                    ...action.decodeVIN
+                    ...action.decodeVIN,
+                }
+            };
+            case VINActions.SET__VEHICLE_VARIABLE_LIST:
+            return {
+                ...prevState,
+                vehicleVariableList: {
+                    ...prevState.setVehicleVariableList,
+                    ...action.vehicleVariableList,
                 }
             };
         case VINActions.SET_SEARCH_VIN:
@@ -74,6 +85,8 @@ const VINStore: React.FC<Props> = ({ children, getDefaultProps }) => {
         setSearchVIN: (searchVIN: string) => dispatch({ type: VINActions.SET_SEARCH_VIN, searchVIN }),
 
         setDecodeVIN: (decodeVIN: IDecodeVIN) => dispatch({ type: VINActions.SET_DECODE_VIN, decodeVIN }),
+
+        setVehicleVariableList: (vehicleVariableList: IVehicleVariableList) => dispatch({ type: VINActions.SET__VEHICLE_VARIABLE_LIST, vehicleVariableList }),
 
         addSearchedVIN: (searchedVIN: string) => dispatch({ type: VINActions.ADD_SEARCHED_VIN, searchedVIN }),
 

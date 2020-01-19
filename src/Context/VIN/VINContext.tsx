@@ -1,5 +1,6 @@
 import { createContext } from 'react';
 import IDecodeVIN from '../../Types/VIN/DecodeVIN';
+import IVehicleVariableList from '../../Types/VIN/VehicleVariableList';
 
 /**
  * @interface VINContextProps
@@ -10,6 +11,9 @@ export interface VINContextProps {
 
     decodeVIN: IDecodeVIN;
     setDecodeVIN: (decodeVIN: IDecodeVIN) => void;
+
+    vehicleVariableList: IVehicleVariableList;
+    setVehicleVariableList: (vehicleVariableList: IVehicleVariableList) => void;
 
     searchedVINList: string[],
     addSearchedVIN: (searchedVIN: string) => void;
@@ -31,6 +35,10 @@ const VINContext = createContext<VINContextProps>({
 
     decodeVIN: initialDecodeVIN,
     setDecodeVIN: (decodeVIN: IDecodeVIN) => {
+    },
+
+    vehicleVariableList: initialDecodeVIN,
+    setVehicleVariableList: (vehicleVariableList: IVehicleVariableList) => {
     },
 
     searchedVINList: [],
