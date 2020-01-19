@@ -1,0 +1,48 @@
+.variable-list {
+    max-width: 1200px;
+    margin: 0 auto 15px;
+
+    &__item {
+
+        &:not(:last-child) {
+            border-bottom: 1px solid #ddd;
+        }
+
+        &:first-child {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 600;
+        }
+    }
+    &__index,
+    &__name,
+    &__desc {
+        padding: 8px 10px;
+    }
+
+    &__index {
+        width: 30px;
+    }
+
+    &__name {
+        width: 30%;
+    }
+
+    &__desc {
+        width: 65%;
+    }
+
+    &__link {
+        text-decoration: none;
+        display: flex;
+        color: $color-black;
+        justify-content: space-between;
+        transition: 0.3s ease;
+        transition-property: color, background-color;
+
+        &:hover {
+            color: $color-light;
+            background-color: #669;
+        }
+    }
+}
