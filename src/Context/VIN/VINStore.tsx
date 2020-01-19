@@ -10,7 +10,9 @@ interface Props {
 }
 
 export enum VINActions {
+    SET_SEARCH_VIN = 'SET_SEARCH_VIN',
     SET_DECODE_VIN = 'SET_DECODE_VIN',
+    ADD_SEARCHED_VIN = 'ADD_SEARCHED_VIN',
 }
 
 /**
@@ -18,7 +20,9 @@ export enum VINActions {
  */
 interface Action {
     type: string;
-    decodeVIN: IDecodeVIN;
+    decodeVIN?: IDecodeVIN;
+    searchedVIN?: string;
+    searchVIN?: string;
 }
 
 /**
@@ -35,6 +39,19 @@ const reducer: Reducer<VINContextProps, Action> = (prevState, action): VINContex
                     ...prevState.decodeVIN,
                     ...action.decodeVIN
                 }
+            };
+        case VINActions.SET_SEARCH_VIN:
+            return {
+                ...prevState,
+                searchVIN: action.searchVIN,
+            };
+        case VINActions.ADD_SEARCHED_VIN:
+            return {
+                ...prevState,
+                searchedVINList: [
+                    action.searchedVIN,
+                    ...prevState.searchedVINList,
+                ],
             };
         default:
             return prevState;
@@ -54,12 +71,16 @@ const VINStore: React.FC<Props> = ({ children, getDefaultProps }) => {
     const [state, dispatch] = useReducer(reducer, {
         ...vinInfo,
 
-        setDecodeVIN: (decodeVIN: IDecodeVIN) => dispatch({type: VINActions.SET_DECODE_VIN, decodeVIN}),
+        setSearchVIN: (searchVIN: string) => dispatch({ type: VINActions.SET_SEARCH_VIN, searchVIN }),
+
+        setDecodeVIN: (decodeVIN: IDecodeVIN) => dispatch({ type: VINActions.SET_DECODE_VIN, decodeVIN }),
+
+        addSearchedVIN: (searchedVIN: string) => dispatch({ type: VINActions.ADD_SEARCHED_VIN, searchedVIN }),
 
         ...getDefaultProps(),
     });
 //TODO save searched VINs
-  //  setItem('tasks', JSON.stringify(state.tasks));
+    //  setItem('tasks', JSON.stringify(state.tasks));
 
     return (
         <VINContext.Provider value={{ ...state, ...getDefaultProps() }}>

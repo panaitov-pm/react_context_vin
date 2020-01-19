@@ -1,6 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import SearchForm from '../Section/SearchForm/SearchForm';
 import DecodeVINList from '../Section/DecodeVIN/DecodeVINList';
+import SearchVINList from '../Module/SearchedVINList/SearchVINList';
+import useQueryDecodeVIN from '../../Hook/useQueryDecodeVIN';
+import withVIN from '../../Context/VIN/withVIN';
 
 /**
  * @interface Props
@@ -9,25 +12,42 @@ interface Props {
 
 }
 
-const Home: React.FC<Props> = ({}): any => {
+const Home: React.FC<Props> = withVIN(({ setDecodeVIN, addSearchedVIN, searchVIN, setSearchVIN, searchedVINList }) => {
 
-    const [isLoadingDecodeVIN, setIsLoadingDecodeVIN] = useState(false);
+    // Query VIN search
+    const { queryDecodeVIN, loading, decodeVIN } = useQueryDecodeVIN(searchVIN);
+    const searchCriteria = decodeVIN.SearchCriteria;
+
+    // Set decodeVIN, clear input value
+    useEffect(() => {
+        setDecodeVIN(decodeVIN);
+        setSearchVIN('');
+    }, [searchCriteria]);
+
+    // Set searched VIN
+    useEffect(() => {
+        (searchCriteria && !searchedVINList.includes(searchCriteria)) &&
+        addSearchedVIN(searchCriteria);
+
+    }, [searchCriteria]);
 
     return (
         <main className="main">
             <aside className="sidebar">
-                sidebar
+                <SearchVINList
+                    queryDecodeVIN={queryDecodeVIN}
+                />
             </aside>
             <section className="decode-info">
                 <SearchForm
-                    setIsLoadingDecodeVIN={setIsLoadingDecodeVIN}
+                    queryDecodeVIN={queryDecodeVIN}
                 />
                 <DecodeVINList
-                    isLoadingDecodeVIN={isLoadingDecodeVIN}
+                    isLoadingDecodeVIN={loading}
                 />
             </section>
         </main>
     );
-};
+});
 
 export default Home;
