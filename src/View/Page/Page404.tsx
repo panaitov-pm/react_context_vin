@@ -15,7 +15,7 @@ const Page404: React.FC<Props> = () => {
                 <h1 className="fade-up">Page not found</h1>
             </Fade>
             <Fade delay={100} className="fade-up">
-                <a className="fade-up" href="/">Back to home</a>
+                <a className="variable__link-error fade-up" href="/">Back to home</a>
             </Fade>
         </>
     );
