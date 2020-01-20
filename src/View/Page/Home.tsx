@@ -7,6 +7,7 @@ import withVIN from '../../Context/VIN/withVIN';
 import removeItem from '../../Helper/Storage/removeItem';
 import StorageItem from '../../Types/Storage/StorageItem';
 import { initialDecodeVIN } from '../../Context/VIN/VINContext';
+import Fade from '../Module/Animation/Fade';
 
 /**
  * @interface Props
@@ -45,14 +46,18 @@ const Home: React.FC<Props> = withVIN(({ setDecodeVIN, setVehicleVariableList, a
     return (
         <main className="main">
             <aside className="sidebar">
-                <SearchVINList
-                    queryDecodeVIN={queryDecodeVIN}
-                />
+                <Fade delay={0} className="fade-up">
+                    <SearchVINList
+                        queryDecodeVIN={queryDecodeVIN}
+                    />
+                </Fade>
             </aside>
             <section className="decode-info">
-                <SearchForm
-                    queryDecodeVIN={queryDecodeVIN}
-                />
+                <Fade delay={0} className="fade-up">
+                    <SearchForm
+                        queryDecodeVIN={queryDecodeVIN}
+                    />
+                </Fade>
                 <DecodeVINList
                     isLoadingDecodeVIN={loading}
                 />
