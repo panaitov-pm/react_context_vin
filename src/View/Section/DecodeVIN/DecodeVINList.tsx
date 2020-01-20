@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import withVIN from '../../../Context/VIN/withVIN';
 import { IDecodeVINResult } from '../../../Types/VIN/DecodeVIN';
 import Fade from '../../Module/Animation/Fade';
@@ -12,11 +12,9 @@ interface Props {
 
 const DecodeVINList: React.FC<Props> = withVIN(({ isLoadingDecodeVIN, decodeVIN }): any => {
 
-    if (isLoadingDecodeVIN) return <h1>Loading....</h1>
+    if (isLoadingDecodeVIN) return <h1>Loading....</h1>;
 
     if (decodeVIN.Results.length === 0) return null;
-
-    // const getAnimationDelay = (isFirstRender) => isFirstRender ? index * 50 : 0;
 
     return (
         <ol className="decode-list">

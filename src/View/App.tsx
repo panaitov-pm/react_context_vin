@@ -15,7 +15,7 @@ interface Props {
 
 }
 
-const App: React.FC<Props> = (): any => {
+const App: React.FC<Props> = () => {
 
     return (
         <>

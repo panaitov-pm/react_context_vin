@@ -10,8 +10,11 @@ interface Props {
     queryDecodeVIN: () => void;
 }
 
-const SearchVINList: React.FC<Props> = withVIN(({ queryDecodeVIN, setSearchVIN, searchedVINList, decodeVIN }): any => {
+const SearchVINList: React.FC<Props> = withVIN(({ queryDecodeVIN, setSearchVIN, searchedVINList, decodeVIN }) => {
 
+    /**
+     * @param {string} searchedVIN
+     */
     const onQueryClick = (searchedVIN: string): void => {
         setSearchVIN(searchedVIN.substr(4, searchedVIN.length));
         queryDecodeVIN();
