@@ -27,8 +27,8 @@ const DecodeVINList: React.FC<Props> = withVIN(({ isLoadingDecodeVIN, decodeVIN 
             </Fade>
             {
                 decodeVIN.Results.map((result: IDecodeVINResult, index: number) => (
-                    <Fade delay={index * 10} className="fade-down">
-                        <li key={result.VariableId} className="decode-list__item fade-down">
+                    <Fade key={result.VariableId} delay={index * 10} className="fade-down">
+                        <li className="decode-list__item fade-down">
                             <span>{index + 1}</span>
                             <span>{result.Variable}</span>
                             <span>{result.Value}</span>

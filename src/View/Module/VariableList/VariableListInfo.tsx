@@ -28,11 +28,8 @@ const VariableListInfo: React.FC<Props> = withVIN(({ vehicleVariableList }) => {
                             if (!getDescription(variable)) return null;
 
                             return (
-                                <Fade delay={index * 10} className="fade-down">
-                                    <li
-                                        key={variable.ID}
-                                        className="variable-list__item fade-down"
-                                    >
+                                <Fade key={variable.ID} delay={index * 10} className="fade-down">
+                                    <li className="variable-list__item fade-down" >
                                         <a
                                             href="/" className="variable-list__link"
                                             onClick={(e) => {

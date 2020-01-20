@@ -14,11 +14,14 @@ const Fade: React.FC<Props> = ({ children, delay, className }) => {
 
     useEffect(() => {
 
-        setTimeout(() => {
+        const timer = setTimeout(() => {
             setShowNode(true);
         }, delay);
 
-        return () => setShowNode(false);
+        return () => {
+            setShowNode(false);
+            clearTimeout(timer);
+        };
     }, []);
 
     return (
