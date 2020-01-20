@@ -7,6 +7,7 @@ import getItem from '../../Helper/Storage/getItem';
 import setItem from '../../Helper/Storage/setItem';
 import StorageItem from '../../Types/Storage/StorageItem';
 import Page404 from './Page404';
+import setDocumentTitle from '../../Helper/DocumentTitle/setDocumentTitle';
 
 /**
  * @interface Props
@@ -19,13 +20,15 @@ const VariableList: React.FC<Props> = withVIN(({ vehicleVariableList, setVehicle
 
     const { response, error, loading, queryVehicleVariableList } = useQueryVehicleVariableList();
 
-    // Send query if storage has no VEHICLE_VARIABLE_LIST item
+    // Send query if storage has no VEHICLE_VARIABLE_LIST item, setDocumentTitle
     useEffect(() => {
         const item = getItem(StorageItem.VEHICLE_VARIABLE_LIST, null);
 
         !item && queryVehicleVariableList();
 
         item && setVehicleVariableList(item);
+
+        setDocumentTitle('Vehicle Variables');
     }, []);
 
     // set and save to storage VehicleVariableList when request is success

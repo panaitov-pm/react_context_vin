@@ -8,6 +8,7 @@ import removeItem from '../../Helper/Storage/removeItem';
 import StorageItem from '../../Types/Storage/StorageItem';
 import { initialDecodeVIN } from '../../Context/VIN/VINContext';
 import Fade from '../Module/Animation/Fade';
+import setDocumentTitle from '../../Helper/DocumentTitle/setDocumentTitle';
 
 /**
  * @interface Props
@@ -22,10 +23,11 @@ const Home: React.FC<Props> = withVIN(({ setDecodeVIN, setVehicleVariableList, a
     const { response, queryDecodeVIN, loading, decodeVIN } = useQueryDecodeVIN(searchVIN);
     const searchCriteria = response?.data?.SearchCriteria;
 
-    // Clean VehicleVariableList for new request
+    // Clean VehicleVariableList for new request, setVehicleVariableList, setDocumentTitle
     useEffect(() => {
         removeItem(StorageItem.VEHICLE_VARIABLE_LIST);
         setVehicleVariableList(initialDecodeVIN);
+        setDocumentTitle();
     }, []);
 
     // Set decodeVIN, clear input value
