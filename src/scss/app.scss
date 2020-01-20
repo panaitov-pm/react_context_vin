@@ -8,11 +8,16 @@
 @import "src/scss/section/navbar/navbar";
 @import "src/scss/section/main/main";
 @import "src/scss/section/sidebar/sidebar";
+@import "src/scss/section/form/form";
+
+// Decode
 @import "src/scss/section/decode-info/decode-info";
 @import "src/scss/section/decode-info/decode-list";
+
+// Variable
 @import "src/scss/section/variable-info/variable-info";
 @import "src/scss/section/variable-info/variable-list";
-@import "src/scss/section/form/form";
+@import "src/scss/section/variable-info/variable";
 
 //modules
 @import "src/scss/module/searched-list";
