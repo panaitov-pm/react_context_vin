@@ -4,6 +4,9 @@ import DecodeVINList from '../Section/DecodeVIN/DecodeVINList';
 import SearchVINList from '../Module/SearchedVINList/SearchVINList';
 import useQueryDecodeVIN from '../../Hook/useQueryDecodeVIN';
 import withVIN from '../../Context/VIN/withVIN';
+import removeItem from '../../Helper/Storage/removeItem';
+import StorageItem from '../../Types/Storage/StorageItem';
+import { initialDecodeVIN } from '../../Context/VIN/VINContext';
 
 /**
  * @interface Props
@@ -12,11 +15,17 @@ interface Props {
 
 }
 
-const Home: React.FC<Props> = withVIN(({ setDecodeVIN, addSearchedVIN, searchVIN, setSearchVIN, searchedVINList }) => {
+const Home: React.FC<Props> = withVIN(({ setDecodeVIN, setVehicleVariableList, addSearchedVIN, searchVIN, setSearchVIN, searchedVINList }) => {
 
     // Query VIN search
     const { response, queryDecodeVIN, loading, decodeVIN } = useQueryDecodeVIN(searchVIN);
     const searchCriteria = response?.data?.SearchCriteria;
+
+    // Clean VehicleVariableList for new request
+    useEffect(() => {
+        removeItem(StorageItem.VEHICLE_VARIABLE_LIST);
+        setVehicleVariableList(initialDecodeVIN);
+    }, []);
 
     // Set decodeVIN, clear input value
     useEffect(() => {
