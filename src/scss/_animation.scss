@@ -29,15 +29,12 @@
 // Fade down animation
 .fade-down {
     opacity: 0;
-    max-height: 0;
-    overflow: hidden;
     transform: translateY(-10px);
     transition: .3s ease-in-out;
     transition-property: opacity, transform, max-height;
 
     &.fade-down-enter-done {
         opacity: 1;
-        max-height: 100px;
         transform: translateY(0px);
 
     }
