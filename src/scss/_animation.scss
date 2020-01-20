@@ -1,9 +1,11 @@
 // Fade up animation
-.fade-up-enter {
+.fade-up-enter,
+.fade-up {
     opacity: 0;
     transform: translateY(50px);
 
-    &.fade-up-enter-active {
+    &.fade-up-enter-active,
+    &.fade-up-enter-done {
         opacity: 1;
         transform: translateY(0px);
         transition:  .5s ease-in-out;

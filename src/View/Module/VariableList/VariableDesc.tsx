@@ -1,6 +1,7 @@
 import React from 'react';
 import { IVehicleVariableListResult } from '../../../Types/VIN/VehicleVariableList';
 import getDescription from '../../../Helper/VariableList/getDescription';
+import Fade from '../Animation/Fade';
 
 /**
  * @interface Props
@@ -12,8 +13,12 @@ interface Props {
 const VariableDesc: React.FC<Props> = ({ variable }) => {
     return (
         <>
-            <h1>{variable.Name}</h1>
-            <div className="variable__desc">{getDescription(variable)}</div>
+            <Fade delay={0} className="fade-up">
+                <h1 className="fade-up">{variable.Name}</h1>
+            </Fade>
+            <Fade delay={100} className="fade-up">
+                <div className="variable__desc fade-up">{getDescription(variable)}</div>
+            </Fade>
         </>
     );
 };
