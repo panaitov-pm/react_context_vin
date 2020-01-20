@@ -8,7 +8,7 @@ import App from './View/App';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
-    <BrowserRouter>
+    <BrowserRouter basename="/react_context_vin">
         <App />
     </BrowserRouter>,
     document.getElementById('root')
