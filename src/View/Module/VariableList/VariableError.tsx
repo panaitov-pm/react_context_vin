@@ -1,5 +1,6 @@
 import React from 'react';
 import Fade from '../Animation/Fade';
+import { urlConfig } from '../../../System/Config';
 
 /**
  * @interface Props
@@ -15,7 +16,7 @@ const VariableError: React.FC<Props> = () => {
                 <h1 className="fade-up">No description</h1>
             </Fade>
             <Fade delay={100} className="fade-up">
-                <a className="variable__link-error fade-up" href="/variables">Back to Variables</a>
+                <a className="variable__link-error fade-up" href={`/${urlConfig.variables.url}`}>Back to Variables</a>
             </Fade>
         </>
     );

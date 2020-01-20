@@ -4,4 +4,8 @@ export const urlConfig = {
     api: {
         url: 'https://vpic.nhtsa.dot.gov/api',
     },
+
+    variables: {
+        url: 'variables'
+    },
 };
