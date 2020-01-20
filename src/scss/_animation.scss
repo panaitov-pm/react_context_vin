@@ -1,0 +1,56 @@
+// Fade up animation
+.fade-up-enter {
+    opacity: 0;
+    transform: translateY(50px);
+
+    &.fade-up-enter-active {
+        opacity: 1;
+        transform: translateY(0px);
+        transition:  .5s ease-in-out;
+        transition-property: opacity, transform;
+    }
+}
+
+.fade-up-exit {
+    opacity: 1;
+    transform: translateY(0px);
+
+    &.fade-up-exit-active {
+        opacity: 0;
+        transform: translateY(50px);
+        transition:  .3s ease-in-out;
+        transition-property: opacity, transform;
+    }
+}
+
+
+// Fade down animation
+.fade-down {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transform: translateY(-10px);
+    transition: .3s ease-in-out;
+    transition-property: opacity, transform, max-height;
+
+    &.fade-down-enter-done {
+        opacity: 1;
+        max-height: 100px;
+        transform: translateY(0px);
+
+    }
+}
+
+// Fade
+.fade {
+    opacity: 0;
+    transition: .3s ease-in-out;
+    transition-property: opacity;
+
+    &.fade-enter-done {
+        opacity: 1;
+    }
+}
+
+
+
