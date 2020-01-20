@@ -1,7 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import withVIN from '../../Context/VIN/withVIN';
-import getDescription from '../../Helper/VariableList/getDescription';
 import { IParams } from '../../Types/History/Params';
 import getVariable from '../../Helper/VariableList/getVariable';
 import VariableError from '../Module/VariableList/VariableError';
@@ -14,7 +13,7 @@ interface Props {
 
 }
 
-const Variable: React.FC<Props> = withVIN(({vehicleVariableList, decodeVIN}) => {
+const Variable: React.FC<Props> = withVIN(({ vehicleVariableList, decodeVIN }) => {
     const params = useParams<IParams>();
 
     const variable = getVariable(vehicleVariableList, params.variableId);
@@ -24,7 +23,7 @@ const Variable: React.FC<Props> = withVIN(({vehicleVariableList, decodeVIN}) => 
             {
                 (!variable)
                     ? <VariableError />
-                    : <VariableDesc variable={variable}/>
+                    : <VariableDesc variable={variable} />
             }
         </section>
     );
